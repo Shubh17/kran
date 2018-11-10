@@ -9,12 +9,13 @@ declare var $:any;
     templateUrl: 'dashboard.component.html'
 })
 
+// tslint:disable-next-line:one-line
 export class DashboardComponent implements OnInit{
     ngOnInit(){
         var dataSales = {
           labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
           series: [
-             [287, 385, 490, 562, 594, 626, 698, 895, 952],
+             [287, 22, 490, 562, 594, 626, 698, 895, 952],
             [67, 152, 193, 240, 387, 435, 535, 642, 744],
             [23, 113, 67, 108, 190, 239, 307, 410, 410]
           ]
@@ -100,5 +101,5 @@ export class DashboardComponent implements OnInit{
           labels: ['62%','32%','6%'],
           series: [62, 32, 6]
         });
-    }
-}
+    }}
+
