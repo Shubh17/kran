@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import * as Chartist from 'chartist';
+import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'angular-d3-charts'; // this is needed!
+import d3 from 'd3'
 
 declare interface TableData {
     headerRow: string[];
@@ -13,20 +14,39 @@ declare interface TableData {
     templateUrl: 'table.component.html'
 })
 
-export class TableComponent implements OnInit{
+
+// "name": "Shroud",
+//     "type": "Twitch",
+//         "positive": 0.006934772,
+//             "negative": 0.8824574,
+//                 "neutral": 0.88304573,
+//                     "mixed": 0.8830457,
+//                         "volume": 1224,
+//                             "updateTime": 1541850512
+
+
+export class TableComponent implements OnInit {
+
+    // }
     ngOnInit() {
         var dataSales = {
-            labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
+            labels: ['0', '1.5', '3.0'],
             series: [
-                [287, 385, 490, 562, 594, 626, 698, 895, 952],
-                [67, 152, 193, 240, 387, 435, 535, 642, 744],
-                [23, 113, 67, 108, 190, 239, 307, 410, 410]
+                [.006934772, .8824574, .8830457],
+                [.00772, 1.84574, .8340457],
+                [.570657, .0210657, .3070657],
+                [.06380893, 0.003554132, .004333],
+
+                
+                // [67, 152, 193, 240, 387, 435, 535, 642, 744],
+                // [23, 113, 67, 108, 190, 239, 307, 410, 410]
             ]
         };
 
+
         var optionsSales = {
             low: 0,
-            high: 1000,
+            high: 2,
             showArea: true,
             height: "245px",
             axisX: {
@@ -48,6 +68,20 @@ export class TableComponent implements OnInit{
                 }
             }]
         ];
+        let donutChartData = [{
+            id: 0, // number
+            label: 'label name',  // string
+            value: 2,  // number
+            color: 'color of slice',  // string,
+            iconImage: 'path of image' // string
+        }, {
+            id: 1, // number
+            label: 'label name',  // string
+            value: 2,  // number
+            color: 'color of slice',  // string,
+            iconImage: 'path of image' // string
+        }
+        ]
 
         new Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);
 
@@ -57,6 +91,7 @@ export class TableComponent implements OnInit{
             series: [
                 [542, 543, 520, 680, 653, 753, 326, 434, 568, 610, 756, 895],
                 [230, 293, 380, 480, 503, 553, 600, 664, 698, 710, 736, 795]
+                
             ]
         };
 
